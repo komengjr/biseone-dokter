@@ -24,8 +24,17 @@ class HomeController extends Controller
     public function index()
     {
 
-        $data = DB::table('m_doctor')->get();
+        $data = DB::table('m_doctor')->paginate(10);;
         // dd($staff);
+        return view('home',['data'=>$data]);
+    }
+    public function find(Request $request)
+    {
+        // dd($request->caridokter);
+        $data = DB::table('m_doctor')
+        ->where('M_DoctorName','like',"%".$request->caridokter."%")
+        ->get();
+
         return view('home',['data'=>$data]);
     }
     public function tambahdokter()
@@ -42,7 +51,8 @@ class HomeController extends Controller
         ->join('nat_jpa','nat_jpa.Nat_JpaID','=','m_doctoraddress.M_DoctorAddressNat_JpaID')
         ->join('m_kelurahan','m_kelurahan.M_KelurahanID','=','m_doctoraddress.M_DoctorAddressM_KelurahanID')
         ->where('m_doctoraddress.M_DoctorAddressM_DoctorID',$id)->get();
-        return view('modal.formjpadokter',['data'=>$data,'jpa'=>$jpa]);
+        $staff = DB::table('m_staff')->get();
+        return view('modal.formjpadokter',['data'=>$data,'jpa'=>$jpa,'staff'=>$staff]);
     }
     public function formjpadokter($id)
     {
@@ -114,6 +124,15 @@ class HomeController extends Controller
                 'M_DoctorAddressM_UserID' =>  '511',
 
             ]);
+        return redirect()->back();
+    }
+    public function postupdatedatadokter(Request $request)
+    {
+        DB::table('m_doctor')
+                ->where('M_DoctorID',$request->id)
+                ->update([
+                            'M_DoctorM_StaffNIK' =>  $request->staff,
+                        ]);
         return redirect()->back();
     }
 }

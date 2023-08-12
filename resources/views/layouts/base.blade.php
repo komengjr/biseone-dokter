@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashtreme - Multipurpose Bootstrap4 Admin Template</title>
+    <title>Dashboard :: {{auth::user()->name}}</title>
     <!--favicon-->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <!-- simplebar CSS-->
@@ -72,7 +72,7 @@
             <div class="brand-logo">
                 <a href="index.html">
                     <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-                    <h5 class="logo-text">Dashtreme Admin</h5>
+                    <h5 class="logo-text">Dashboard Admin</h5>
                 </a>
             </div>
             <div class="user-details">
@@ -81,7 +81,7 @@
                     <div class="avatar"><img class="mr-3 side-user-img" src="https://via.placeholder.com/110x110"
                             alt="user avatar"></div>
                     <div class="media-body">
-                        <h6 class="side-user-name">Mark Johnson</h6>
+                        <h6 class="side-user-name">{{auth::user()->name}}</h6>
                     </div>
                 </div>
                 <div id="user-dropdown" class="collapse">
@@ -100,17 +100,8 @@
                             class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
-                        <li><a href="index.html"><i class="zmdi zmdi-dot-circle-alt"></i> eCommerce</a></li>
-                        <li><a href="dashboard-human-resources.html"><i class="zmdi zmdi-dot-circle-alt"></i> Human
-                                Resources</a></li>
-                        <li><a href="dashboard-digital-marketing.html"><i class="zmdi zmdi-dot-circle-alt"></i> Digital
-                                Marketing</a></li>
-                        <li><a href="dashboard-property-listing.html"><i class="zmdi zmdi-dot-circle-alt"></i> Property
-                                Listings</a></li>
-                        <li><a href="dashboard-service-support.html"><i class="zmdi zmdi-dot-circle-alt"></i> Services &
-                                Support</a></li>
-                        <li><a href="dashboard-logistics.html"><i class="zmdi zmdi-dot-circle-alt"></i> Logistics</a>
-                        </li>
+                        <li><a href="{{ url('home', []) }}"><i class="zmdi zmdi-dot-circle-alt"></i> Home</a></li>
+
                     </ul>
                 </li>
             </ul>
@@ -288,7 +279,11 @@
                             <li class="dropdown-divider"></li>
                             <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
                             <li class="dropdown-divider"></li>
-                            <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+                            <li class="dropdown-item"><i class="icon-power mr-2"></i> <a href="http://"
+                                onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Logout</a></li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </ul>
                     </li>
                 </ul>

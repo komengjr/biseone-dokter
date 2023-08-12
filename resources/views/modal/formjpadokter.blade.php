@@ -7,11 +7,12 @@
 <div class="card">
     <div class="card-body">
         <div class="p-4 border rounded">
-            <form action="{{ url('simpandatadokter', []) }}" method="post" class="was-validated row g-3" enctype="multipart/form-data">
+            <form action="{{ url('updatedatadokter', []) }}" method="post" class="was-validated row g-3" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-2">
                     <label for="validationTextarea" class="form-label">Kode Dokter</label>
                     <input type="text" class="form-control" id="validationFormCheck1" name="kd_dokter" value="{{$data->M_DoctorCode}}" required>
+                    <input type="text" class="form-control" id="validationFormCheck1" name="id" value="{{$data->M_DoctorID}}" required>
                 </div>
                 <div class="col-md-1">
                     <label for="validationTextarea" class="form-label">Awalan 1</label>
@@ -64,7 +65,13 @@
                 </div>
                 <div class="col-md-3">
                     <label for="validationTextarea" class="form-label">Marketing Dokter</label>
-                    <input type="text" class="form-control" id="validationFormCheck1" name="kd_dokter" value="{{$data->M_DoctorM_StaffNIK}}" required>
+                    <select name="staff" id="" class="form-control single-select2" >
+                        <option value="{{ $data->M_DoctorM_StaffNIK}}">{{ $data->M_DoctorM_StaffNIK }}</option>
+                        <option value="">Pilih Staff</option>
+                        @foreach ($staff as $item)
+                            <option value="{{ $item->M_StaffNIK }}">{{ $item->M_StaffName }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
 
@@ -73,7 +80,11 @@
                     <input type="text" class="form-control" id="validationFormCheck1" name="catatan"  value="{{$data->M_DoctorNote}}">
                 </div>
                 {{-- <hr> --}}
-
+                <div class="col-md-12 pt-4">
+                <button type="submit" class="btn btn-info" >
+                    <i class="fa fa-times"></i> Update
+                </button>
+                </div>
             </form>
         </div>
     </div>

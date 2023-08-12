@@ -17,11 +17,11 @@
                                 </div>
 
                                 <div class="col-lg-9 col-xl-10">
-                                    <form class="float-lg-end">
+                                    <form class="float-lg-end" action="{{ url('find', []) }}" method="GET">
                                         <div class="row row-cols-lg-auto g-2">
                                             <div class="col-12">
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control ps-5"
+                                                    <input type="text" name="caridokter" class="form-control ps-5"
                                                         placeholder="Search Product..."> <span
                                                         class="position-absolute top-50 product-show translate-middle-y"><i
                                                             class="bx bx-search"></i></span>

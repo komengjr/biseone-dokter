@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashtreme - Multipurpose Bootstrap4 Admin Template</title>
+    <title>Login Panel :: APP_SERVEs</title>
     <!--favicon-->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap core CSS-->
@@ -48,7 +48,7 @@
             <div class="card-body">
                 <div class="card-content p-2">
                     <div class="text-center">
-                        <img src="assets/images/logo-icon.png" alt="logo icon">
+                        <img src="assets/images/logo-icon.png" alt="logo icon" width="50">
                     </div>
                     <div class="card-title text-uppercase text-center py-3">Sign In</div>
                     <form method="POST" action="{{ route('login') }}">
@@ -83,28 +83,17 @@
                                 </div>
                             </div>
                             <div class="form-group col-6 text-right">
-                                <a href="authentication-reset-password.html">Reset Password</a>
+                                {{-- <a href="authentication-reset-password.html">Reset Password</a> --}}
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        <div class="text-center mt-3">Sign In With</div>
-
-                        <div class="form-row mt-4">
-                            <div class="form-group mb-0 col-6">
-                                <button type="button" class="btn bg-facebook text-white btn-block"><i
-                                        class="fa fa-facebook-square"></i> Facebook</button>
-                            </div>
-                            <div class="form-group mb-0 col-6 text-right">
-                                <button type="button" class="btn bg-twitter text-white btn-block"><i
-                                        class="fa fa-twitter-square"></i> Twitter</button>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Tombol Masuk</button>
+                        {{-- <div class="text-center mt-3">Sign In With</div> --}}
 
                     </form>
                 </div>
             </div>
             <div class="card-footer text-center py-3">
-                <p class="mb-0">Do not have an account? <a href="authentication-signup.html"> Sign Up here</a></p>
+                <p class="mb-0">Copyright © 2023</p>
             </div>
         </div>
 
