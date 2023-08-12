@@ -12,7 +12,7 @@
                 <div class="col-md-2">
                     <label for="validationTextarea" class="form-label">Kode Dokter</label>
                     <input type="text" class="form-control" id="validationFormCheck1" name="kd_dokter" value="{{$data->M_DoctorCode}}" required>
-                    <input type="text" class="form-control" id="validationFormCheck1" name="id" value="{{$data->M_DoctorID}}" required>
+                    <input type="text" class="form-control" id="validationFormCheck1" name="id" value="{{$data->M_DoctorID}}" hidden>
                 </div>
                 <div class="col-md-1">
                     <label for="validationTextarea" class="form-label">Awalan 1</label>
@@ -66,7 +66,12 @@
                 <div class="col-md-3">
                     <label for="validationTextarea" class="form-label">Marketing Dokter</label>
                     <select name="staff" id="" class="form-control single-select2" >
-                        <option value="{{ $data->M_DoctorM_StaffNIK}}">{{ $data->M_DoctorM_StaffNIK }}</option>
+                        @php
+                            $staff1 = DB::table('m_staff')->where('M_StaffNIK',$data->M_DoctorM_StaffNIK)->first();
+                        @endphp
+                        @if ($staff1)
+                        <option value="{{ $data->M_DoctorM_StaffNIK}}">{{ $staff1->M_StaffName }}</option>
+                        @endif
                         <option value="">Pilih Staff</option>
                         @foreach ($staff as $item)
                             <option value="{{ $item->M_StaffNIK }}">{{ $item->M_StaffName }}</option>

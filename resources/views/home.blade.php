@@ -22,7 +22,7 @@
                                             <div class="col-12">
                                                 <div class="position-relative">
                                                     <input type="text" name="caridokter" class="form-control ps-5"
-                                                        placeholder="Search Product..."> <span
+                                                        placeholder="Search Dokter..."> <span
                                                         class="position-absolute top-50 product-show translate-middle-y"><i
                                                             class="bx bx-search"></i></span>
                                                 </div>
